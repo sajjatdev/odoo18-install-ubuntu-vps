@@ -54,13 +54,13 @@ sudo nano /etc/odoo18.conf
 # [options]
 # ; This is the password that allows database operations:
 # ; admin_passwd = admin
-# db_host = localhost
-# db_port = 5432
-# db_user = odoo18
-# db_password = 123456
-# addons_path = /opt/odoo18/addons
-# default_productivity_apps = True
-# logfile = /var/log/odoo/odoo18.log
+db_host = localhost
+db_port = 5432
+db_user = odoo18
+db_password = 123456
+addons_path = /opt/odoo18/addons
+default_productivity_apps = True
+logfile = /var/log/odoo/odoo18.log
 
 # Set correct permissions on the Odoo configuration file to ensure security.
 sudo chown odoo18: /etc/odoo18.conf
@@ -73,17 +73,17 @@ sudo chown odoo18:root /var/log/odoo
 # Create a systemd service file for Odoo 18 to manage it as a service.
 sudo nano /etc/systemd/system/odoo18.service
 
-# Odoo systemd service configuration.
-# [Unit]
-# Description=Odoo18
-# Documentation=http://www.odoo.com
-# [Service]
-# Ubuntu/Debian convention:
-# Type=simple
-# User=odoo18
-# ExecStart=/opt/odoo18/venv/bin/python3.12 /opt/odoo18/odoo-bin -c /etc/odoo18.conf
-# [Install]
-# WantedBy=default.target
+Odoo systemd service configuration.
+[Unit]
+Description=Odoo18
+Documentation=http://www.odoo.com
+[Service]
+Ubuntu/Debian convention:
+Type=simple
+User=odoo18
+ExecStart=/opt/odoo18/venv/bin/python3.12 /opt/odoo18/odoo-bin -c /etc/odoo18.conf
+[Install]
+WantedBy=default.target
 
 # Set permissions and ownership on the systemd service file.
 sudo chmod 755 /etc/systemd/system/odoo18.service
